@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/bg.css" />
+    <title>More</title>
+    <!-- 使用gsap动画库 -->
+    <script src="gsap.js"></script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      img {
+        pointer-events: none;
+        user-select: none;
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+      }
+
+      body {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-color: #171717;
+        overflow: hidden;
+      }
+
+      .photos {
+        position: absolute;
+        flex-direction: column;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .photos_line {
+        font-size: 1px;
+        height: 342em;
+        margin-bottom: 48em;
+        flex-shrink: 0;
+      }
+
+      .photos_line_photo {
+        font-size: 1px;
+        width: 234em;
+        height: 100%;
+        margin-right: 36em;
+        border-radius: 15em;
+        background-color: #17f700;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+
+      .photos_line_photo img {
+        height: 100%;
+        transform: scale(1.1);
+        transition: 0.3s ease;
+      }
+
+      .photos_line_photo:hover img {
+        transform: scale(1.3);
+      }
+
+      @media screen and (max-aspect-ratio: 1.5/1) {
+        .photos_line,
+        .photos_line_photo {
+          font-size: 2px;
+        }
+      }
+
+      @media screen and (max-aspect-ratio: 0.8/1) {
+        .photos_line,
+        .photos_line_photo {
+          font-size: 2.8px;
+        }
+      }
+
+      .notice {
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(104, 104, 104, 0.218);
+        backdrop-filter: blur(20px);
+        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .notice .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: "Fraunces", Didot, "Bodoni MT", "Noto Serif Display";
+        padding: 20px 80px;
+        font-size: 20px;
+        border-radius: 20px;
+        background-color: aliceblue;
+        gap: 20px;
+      }
+
+      button {
+        cursor: pointer;
+        outline: none;
+        padding: 10px 20px;
+        background-color: #171717;
+        color: aliceblue;
+        border-radius: 20px;
+        border: none;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="notice">
+      <div class="content">
+        <span>尝试拖动!</span>
+        <button class="btn">确定</button>
+      </div>
+    </div>
+    <div class="photos">
+      <!-- 第一行照片 -->
+      <div class="photos_line">
+        <div class="photos_line_photo">
+          <img src="photos/photo (1).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (2).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (3).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (4).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (5).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (6).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (7).png" />
+        </div>
+      </div>
+      <!-- 第二行照片 -->
+      <div class="photos_line">
+        <div class="photos_line_photo">
+          <img src="photos/photo (8).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (9).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (10).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (11).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (12).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (13).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (14).png" />
+        </div>
+      </div>
+      <!-- 第三行照片 -->
+      <div class="photos_line">
+        <div class="photos_line_photo">
+          <img src="photos/photo (15).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (16).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (17).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (18).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (19).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (20).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (21).png" />
+        </div>
+      </div>
+      <!-- 第四行照片 -->
+      <div class="photos_line">
+        <div class="photos_line_photo">
+          <img src="photos/photo (22).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (23).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (24).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (25).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (26).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (27).png" />
+        </div>
+        <div class="photos_line_photo">
+          <img src="photos/photo (28).png" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const photobox = {
+      container: document.querySelector(".photos"),
+      img_data: [],
+      container_width: 0,
+      container_height: 0,
+      photo_width: 0,
+      photo_height: 0,
+      if_movable: false,
+      mouse_x: 0,
+      mouse_y: 0,
+      standard_width: 1440,
+      scale_nums: 1,
+      init() {
+        this.resize();
+        // 监听窗口大小变化事件
+        window.addEventListener("resize", () => {
+          this.resize();
+        });
+        // 监听鼠标按下事件
+        this.container.addEventListener("mousedown", (e) => {
+          this.if_movable = true;
+          this.mouse_x = e.clientX;
+          this.mouse_y = e.clientY;
+        });
+        // 监听鼠标抬起事件
+        this.container.addEventListener("mouseup", () => {
+          this.if_movable = false;
+        });
+        // 监听鼠标离开容器事件
+        this.container.addEventListener("mouseleave", () => {
+          this.if_movable = false;
+        });
+        // 监听鼠标移动事件
+        this.container.addEventListener("mousemove", (e) => {
+          this.move(e.clientX, e.clientY);
+        });
+      },
+      resize() {
+        // 获取所有的照片元素
+        let imgs = [...document.querySelectorAll(".photos_line_photo")];
+        // 获取容器的宽度和高度
+        this.container_width = this.container.offsetWidth;
+        this.container_height = this.container.offsetHeight;
+        // 获取照片的宽度和高度
+        this.photo_width = imgs[0].offsetWidth;
+        this.photo_height = imgs[0].offsetHeight;
+        // 计算缩放比例
+        this.scale_nums = document.body.offsetWidth / this.standard_width;
+        // 缩放容器
+        this.container.style.transform = `scale(${this.scale_nums})`;
+        // 重置所有照片的位置
+        gsap.to(imgs, {
+          transform: `translate(0,0)`,
+          duration: 0,
+          ease: "power4.out",
+        });
+        // 保存照片的初始数据
+        this.img_data = [];
+        imgs.forEach((img) => {
+          this.img_data.push({
+            node: img,
+            x: img.offsetLeft,
+            y: img.offsetTop,
+            mov_x: 0,
+            mov_y: 0,
+            ani: 0,
+          });
+        });
+      },
+      move(x, y) {
+        // 如果鼠标未按下，则不进行移动
+        if (!this.if_movable) return 0;
+        // 计算鼠标移动的距离
+        let distance_x = (x - this.mouse_x) / this.scale_nums;
+        let distance_y = (y - this.mouse_y) / this.scale_nums;
+        this.img_data.forEach((img) => {
+          let duration = 1;
+          img.mov_x += distance_x;
+          // 边界检测和位置重置
+          if (img.x + img.mov_x > this.container_width) {
+            img.mov_x -= this.container_width;
+            duration = 0;
+          }
+          if (img.x + img.mov_x < -this.photo_width) {
+            img.mov_x += this.container_width;
+            duration = 0;
+          }
+          img.mov_y += distance_y;
+          if (img.y + img.mov_y > this.container_height) {
+            img.mov_y -= this.container_height;
+            duration = 0;
+          }
+          if (img.y + img.mov_y < -this.photo_height) {
+            img.mov_y += this.container_height;
+            duration = 0;
+          }
+          if (img.ani) img.ani.kill();
+          // 使用gsap进行加速
+          img.ani = gsap.to(img.node, {
+            transform: `translate(${img.mov_x}px,${img.mov_y}px)`,
+            duration: duration,
+            ease: "power4.out",
+          });
+        });
+        // 更新鼠标位置
+        this.mouse_x = x;
+        this.mouse_y = y;
+      },
+    };
+
+    photobox.init();
+    document.querySelector(".btn").addEventListener("click", () => {
+      document.querySelector(".notice").classList.add("hidden");
+    });
+  </script>
+  <script src="./src/insertbg.js" defer></script>
+</html>

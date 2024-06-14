@@ -1,0 +1,67 @@
+/* scroll-snap-type 要比较新版本的浏览器(2022+)才能执行 */
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+header {
+  overflow: hidden !important;
+}
+
+.indicator::before {
+  animation: indicate linear both;
+  animation-timeline: --main;
+  animation-range: contain;
+}
+
+body,
+.content {
+  background-color: black;
+}
+
+.section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  view-timeline: --section;
+  height: 100vh;
+}
+
+.content {
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+}
+
+.indicator::before {
+  animation: indicate linear both;
+  animation-timeline: --main;
+  animation-range: contain;
+}
+
+body .content {
+  animation: zoom-scroll ease-in-out both;
+  animation-timeline: --section;
+}
+
+@keyframes zoom-scroll {
+  0% {
+    filter: blur(5rem);
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  50% {
+    filter: blur(0);
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    filter: blur(3rem);
+    transform: scale(1.5);
+    opacity: 0;
+    visibility: hidden;
+  }
+}

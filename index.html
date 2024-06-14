@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FLOWERS</title>
+    <link rel="stylesheet" href="./styles/common.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/mainforscroll.css" />
+    <link rel="stylesheet" href="./styles/bottom.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav>
+        <ul class="indicator">
+          <li>
+            <a href="#1" class="a1"></a>
+          </li>
+          <li>
+            <a href="#2" class="a2"></a>
+          </li>
+          <li>
+            <a href="#3" class="a3"></a>
+          </li>
+          <li>
+            <a href="#4" class="a4"></a>
+          </li>
+          <li>
+            <a href="#5" class="a5"></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section
+        id="0"
+        class="section"
+        style="display: flex; align-items: center; justify-content: center"
+      >
+        <div class="top">
+          <div class="stitle about">about us</div>
+          <div class="stitle pricing">pricing</div>
+          <div class="stitle more">more</div>
+        </div>
+        <div class="title">
+          <span style="color: var(--color-primary)">F</span>L<span
+            style="color: var(--color-secondary)"
+            >O</span
+          >WER<span style="color: var(--color-purple)">S</span>
+        </div>
+      </section>
+      <section id="1" class="section">
+        <div class="content">
+          <div class="headText">
+            <span style="color: var(--color-primary)"
+              ><strong>Lily,</strong></span
+            >
+            <span style="line-height: 0px">
+              belonging<br />to the genus Lilium</span
+            >
+          </div>
+          <img src="./imgs/flower-white.png" alt="" />
+          <button>Learn more</button>
+        </div>
+      </section>
+      <section id="2" class="section">
+        <div class="content">
+          <div class="headText" style="width: 1000px">
+            <span style="color: var(--color-yellow)"
+              ><strong>Sulfur Cosmos,</strong></span
+            >
+            <span style="line-height: 0px">
+              popular in gardens <br />for attracting pollinators</span
+            >
+          </div>
+          <img src="./imgs/flower-yellow.png" alt="" />
+          <button>Learn more</button>
+        </div>
+      </section>
+      <section id="3" class="section">
+        <div class="content">
+          <div class="headText">
+            <span style="color: var(--color-secondary)"
+              ><strong>Anemone,</strong></span
+            >
+            <span style="line-height: 0px">
+              also known as the <br />Windflower</span
+            >
+          </div>
+          <img src="./imgs/flower-blue.png" alt="" />
+          <button>Learn more</button>
+        </div>
+      </section>
+      <section id="4" class="section">
+        <div class="content">
+          <div class="headText">
+            <span style="color: var(--color-red)"
+              ><strong>Yu Mei Ren, </strong></span
+            >
+            <span style="line-height: 0px">
+              also known as <br />Chinese Honeysuckle</span
+            >
+          </div>
+          <img src="./imgs/flower-red.png" alt="" />
+          <button>Learn more</button>
+        </div>
+      </section>
+      <section id="5" class="section">
+        <div class="content">
+          <div class="headText" style="width: 600px">
+            <span style="color: var(--color-purple)"
+              ><strong>Purple tulips,</strong></span
+            >
+            <span style="line-height: 0px">
+              a variety of tulip known <br />for their stunning purple
+              hue.</span
+            >
+          </div>
+          <img src="./imgs/flower-purple.png" alt="" />
+          <button>Learn more</button>
+        </div>
+      </section>
+    </main>
+
+    <footer id="bottom">
+      <div class="colorful">
+        <p class="type"></p>
+        <div>
+          Contact Us: 123 Blossom Street, Flower City, FL 45678 <br />Phone:
+          (123) 456-7890 <br />Email: contact@flowerheaven.com
+        </div>
+        <div>
+          Business Hours:
+          <br />
+          Monday - Friday: 9:00 AM - 6:00 PM <br />Saturday: 10:00 AM - 4:00 PM
+          <br />Sunday: Closed
+        </div>
+        <div>
+          Customer Service: <br />FAQ | Shipping & Returns | Privacy Policy
+          <br />| Terms & Conditions
+        </div>
+      </div>
+    </footer>
+    <script defer src="./src/type.js"></script>
+    <script>
+      document.querySelector(".about").addEventListener("click", () => {
+        window.location.hash = "bottom";
+      });
+      document.querySelector(".pricing").addEventListener("click", () => {
+        window.open("./pricing.html");
+      });
+      document.querySelector(".more").addEventListener("click", () => {
+        window.open("./more.html");
+      });
+      const buttons = document.querySelectorAll("button");
+      buttons.forEach((e, i) => {
+        e.addEventListener("click", () => {
+          window.open(`./flower${(i % 2) + 1}.html`);
+        });
+      });
+    </script>
+  </body>
+</html>
