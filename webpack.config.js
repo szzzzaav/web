@@ -18,6 +18,11 @@ module.exports = {
           },
         },
       },
+      {
+        test: /.md$/,
+        // 可以使用文件路径
+        use: "./markdown-loader.js",
+      },
     ],
   },
 };

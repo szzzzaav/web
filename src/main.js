@@ -1,5 +1,3 @@
-console.log(123);
-const a = () => {
-  console.log(1);
-};
-a();
+import md from "../m.md";
+
+document.body.insertAdjacentHTML("afterbegin", md);
