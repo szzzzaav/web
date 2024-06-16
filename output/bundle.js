@@ -83,6 +83,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _m_md__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _m_md__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_m_md__WEBPACK_IMPORTED_MODULE_0__);
 
+console.log((_m_md__WEBPACK_IMPORTED_MODULE_0___default()));
 document.body.insertAdjacentHTML("afterbegin", (_m_md__WEBPACK_IMPORTED_MODULE_0___default()));
 })();
 

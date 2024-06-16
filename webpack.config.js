@@ -1,4 +1,6 @@
 const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "none",
@@ -6,11 +8,13 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.join(__dirname, "output"),
+    // publicPath: "output/",
   },
   module: {
     rules: [
       {
         test: /.js$/,
+        exclude: path.join(__dirname, "node_modules/html-webpack-plugin"),
         use: {
           loader: "babel-loader",
           options: {
@@ -25,4 +29,5 @@ module.exports = {
       },
     ],
   },
+  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin()],
 };
