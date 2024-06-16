@@ -3,12 +3,15 @@ const path = require("path");
 module.exports = {
   devtool: false,
   mode: "none",
-  entry: ["./styles/bg.css", "./src/insertbg.js"],
+  entry: ["./src/main.js"],
   output: {
     filename: "bundle.js",
     path: path.join(__dirname, "output"),
   },
   module: {
-    rules: [{ test: /.css$/, use: ["style-loader", "css-loader"] }],
+    rules: [
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      { test: /\.jpg$/, use: ["file-loader"] },
+    ],
   },
 };
