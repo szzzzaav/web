@@ -14,7 +14,7 @@ module.exports = {
     rules: [
       {
         test: /.js$/,
-        exclude: path.join(__dirname, "node_modules/html-webpack-plugin"),
+        exclude: [path.join(__dirname, "node_modules/html-webpack-plugin")],
         use: {
           loader: "babel-loader",
           options: {
@@ -27,7 +27,38 @@ module.exports = {
         // 可以使用文件路径
         use: "./markdown-loader.js",
       },
+      {
+        test: /.html$/,
+        use: "html-loader",
+      },
     ],
   },
-  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    // //生成多个html
+    // ...(() => {
+    //   let ps = [];
+    //   for (let i = 0; i < 10; i++) {
+    //     ps.push(
+    //       new HtmlWebpackPlugin({
+    //         filename: `${i}.html`,
+    //       })
+    //     );
+    //   }
+    //   return ps;
+    // })(),
+    // 用于生成index.html
+    new HtmlWebpackPlugin({
+      title: "pracitise webpackplugin",
+      meta: {
+        viewport: "width=device-width",
+      },
+      template: "src/index.html",
+    }),
+
+    // 用于生成about.html
+    new HtmlWebpackPlugin({
+      filename: "about.html",
+    }),
+  ],
 };
