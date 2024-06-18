@@ -10,7 +10,10 @@ module.exports = {
     filename: "bundle.js",
     path: path.join(__dirname, "output"),
     // 网站的根目录
-    publicPath: "output/",
+    // publicPath: "output/",
+  },
+  devServer: {
+    static: ["./imgs"],
   },
   module: {
     rules: [
@@ -35,6 +38,7 @@ module.exports = {
         viewport: "width=device-width",
       },
       filename: "index.html",
+      template: "./template.html",
     }),
   ],
 };
