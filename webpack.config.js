@@ -5,12 +5,19 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 class myPlugin {
   apply(compiler) {
-    console.log(compiler);
     console.log("hello plugin");
     compiler.hooks.emit.tap("myPlugin", (compilation) => {
       // compilation可以理解为此次打包的上下文
-      for (let name in compilation) {
-        console.log(name);
+      for (let name in compilation.assets) {
+        // console.log(compilation.assets[name].source());
+        if (name.endsWith(".js")) {
+          const contents = compilation.assets[name].source();
+          const withoutComments = contents.replace(/\/\*\*+\*\//g, "");
+          compilation.assets[name] = {
+            source: () => withoutComments,
+            size: () => withoutComments,
+          };
+        }
       }
     });
   }
