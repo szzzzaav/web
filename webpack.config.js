@@ -1,6 +1,20 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
+class myPlugin {
+  apply(compiler) {
+    console.log(compiler);
+    console.log("hello plugin");
+    compiler.hooks.emit.tap("myPlugin", (compilation) => {
+      // compilation可以理解为此次打包的上下文
+      for (let name in compilation) {
+        console.log(name);
+      }
+    });
+  }
+}
 
 module.exports = {
   mode: "none",
@@ -60,5 +74,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "about.html",
     }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "public", to: "output" }],
+    }),
+    new myPlugin(),
   ],
 };
